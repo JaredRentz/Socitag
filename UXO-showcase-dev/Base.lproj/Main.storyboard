@@ -76,6 +76,9 @@
                                                         <state key="normal" title="FACEBOOK LOGIN">
                                                             <color key="titleColor" white="0.98392932050000004" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="fbBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oIr-M3-2xk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <animations/>
@@ -146,6 +149,7 @@
                                             <color key="titleColor" white="0.98392932050000004" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="attemptSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z5d-qT-CTQ"/>
                                             <action selector="signinButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jTE-SI-YZc"/>
                                         </connections>
                                     </button>
@@ -157,7 +161,7 @@
                                             <constraint firstAttribute="height" constant="30" id="nOM-Na-sU1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <animations/>
@@ -199,12 +203,35 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emailField" destination="WkM-ai-yhf" id="slP-dw-D2X"/>
+                        <outlet property="passwordField" destination="bvH-qz-Wl7" id="Xnv-bw-n9w"/>
                         <outlet property="signInbtn" destination="w6u-kK-9fJ" id="3kb-SU-zza"/>
+                        <segue destination="aqb-X3-zl2" kind="show" identifier="LoggedIn" id="gjy-n6-aVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="415.5" y="415.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WK2-Bo-lhL">
+            <objects>
+                <viewController id="aqb-X3-zl2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="izq-YX-eur"/>
+                        <viewControllerLayoutGuide type="bottom" id="61h-49-6je"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D90-jl-MX3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4g-wA-4vj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937.5" y="415.5"/>
         </scene>
     </scenes>
     <resources>

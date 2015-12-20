@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "02A9D239E685D95A9F5134771408FD87D77E6E10",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "02A9D239E685D95A9F5134771408FD87D77E6E10" : 0,
+    "86869C634ED600B827895B27420D99178373CB00" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B4CE505E-1F42-47F5-88E0-E3CBE10B7C14",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "02A9D239E685D95A9F5134771408FD87D77E6E10" : "UXO-showcase-dev\/",
+    "86869C634ED600B827895B27420D99178373CB00" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UXO-showcase-dev",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "UXO-showcase-dev.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Jr6Over6\/Socitag.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "02A9D239E685D95A9F5134771408FD87D77E6E10"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Jr6Over6\/VP-Connect.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "86869C634ED600B827895B27420D99178373CB00"
+    }
+  ]
+}
