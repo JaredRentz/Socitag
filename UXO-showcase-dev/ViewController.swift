@@ -10,16 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var signInbtn: UIButton!
+ 
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func signinButtonPressed(sender: UIButton) {
+        
+    signInbtn.setTitle("Processing...", forState: UIControlState.Normal)
+      self.signInbtn.enabled = false
+        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "enableButton", userInfo: nil, repeats: false)
+        
+        enableButton()
+    }
+  
+    func enableButton() {
+     self.signInbtn.enabled = true
+       
+        
+    }
 
 }
-

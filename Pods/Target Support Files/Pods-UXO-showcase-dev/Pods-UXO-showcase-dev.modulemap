@@ -1,0 +1,6 @@
+framework module Pods_UXO_showcase_dev {
+  umbrella header "Pods-UXO-showcase-dev-umbrella.h"
+
+  export *
+  module * { export * }
+}
