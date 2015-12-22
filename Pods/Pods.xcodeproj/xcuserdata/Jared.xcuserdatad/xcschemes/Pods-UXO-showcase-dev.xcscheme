@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '27D1E2AEF96E94117EBE5607'
+               BlueprintIdentifier = '0FD59309E6A7606BB9397BB2'
                BlueprintName = 'Pods-UXO-showcase-dev'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_UXO_showcase_dev.framework'>

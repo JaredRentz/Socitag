@@ -4,6 +4,6 @@
 use_frameworks!
 pod 'Firebase', '>= 2.5.0'
 target 'UXO-showcase-dev' do
-
+pod 'Alamofire', '~> 3.0'
 end
 

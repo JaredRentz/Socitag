@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var signInbtn: UIButton!
     @IBOutlet weak var emailField: MaterialTextField!
@@ -21,9 +21,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        passwordField.delegate = self
 
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
@@ -33,6 +34,20 @@ class ViewController: UIViewController {
         }
     }
     
+    // Dismiss Keyboard
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+
+        if passwordField.text == "" {
+        textField.resignFirstResponder()
+         return false
+        } else {
+            textField.resignFirstResponder()
+            return true
+        }
+       
+    }
     @IBAction func signinButtonPressed(sender: UIButton) {
         
     signInbtn.setTitle("Processing...", forState: UIControlState.Normal)
@@ -47,6 +62,7 @@ class ViewController: UIViewController {
        
         
     }
+    // MARK - Facebook log in attempt
     
     @IBAction func fbBtnPressed(sender: UIButton) {
         
@@ -66,6 +82,12 @@ class ViewController: UIViewController {
                         print("login Failed. \(error)")
                     } else {
                     print ("Logged In! \(authData)")
+                    
+    // Linking FB User to Firebase 
+                        
+                    let user = ["provider": authData.provider!]
+                        DataService.ds.createFirebaseUser(authData.uid, user: user)
+                        
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
                     self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                         
@@ -80,6 +102,8 @@ class ViewController: UIViewController {
     }
     }
     
+    // MARK- Firebase User login attempt
+    
     @IBAction func attemptSignIn(sender: UIButton) {
         if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
             
@@ -93,10 +117,17 @@ class ViewController: UIViewController {
                             
                             if error != nil {
                                 self.showErrorAlert("Uh Oh", msg: "Problem with Account. Try something else")
+                                
                             } else {
+                                
                                 NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
                                 
                                 DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { err, authData in
+                                    
+                              //MARK - Firebase Saves Password
+                                    
+                                    let user = ["provider": authData.provider!]
+                                    DataService.ds.createFirebaseUser(authData.uid, user: user)
                                     
                                     self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                                     
@@ -124,6 +155,7 @@ class ViewController: UIViewController {
             showErrorAlert("Email and Password Required", msg: "Please enter an Email and Password")
         }
     }
+    
     func showErrorAlert (title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
@@ -131,4 +163,5 @@ class ViewController: UIViewController {
         
         presentViewController(alert, animated: true, completion: nil)
     }
-}
+    
+    }
